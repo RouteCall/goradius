@@ -22,6 +22,9 @@ func (c *Config) NewEnvs() {
 	}
 	for k := range e {
 		e[k] = os.Getenv(k)
+		if len(e[k]) > 0 {
+			c.Log.Debugf("environment variable: %+v\n", e[k])
+		}
 	}
 
 	c.Envs = e
@@ -39,6 +42,7 @@ func Init() *Config {
 	}
 	c.Log.Level = log.DebugLevel
 
+	// get environment variables
 	c.NewEnvs()
 
 	c.Log.Debugf("init config: %+v\n", c)

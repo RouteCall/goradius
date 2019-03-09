@@ -17,6 +17,6 @@ type State struct {
 func New() *GlobalState {
 	g := new(GlobalState)
 	g.Config = config.Init()
-	g.Config.Log.Debugf("new global state: %+v\n", g)
+	//g.Config.Log.Debugf("new global state: %+v\n", g)
 	return g
 }
